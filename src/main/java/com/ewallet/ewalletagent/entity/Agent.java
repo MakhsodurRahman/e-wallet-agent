@@ -55,8 +55,11 @@ public class Agent implements Serializable {
     @Column(name = "status")
     private Status status;
 
-    @Column(name = "profile_Image_Path")
-    private String profileImagePath;
+    @Column(name = "profile_photo_Path")
+    private String profilePhotoPath;
+
+    @Column(name = "nid_photo_Path")
+    private String nidPhotoPath;
 
     @Column(name = "nid_number")
     private String nidNumber;
