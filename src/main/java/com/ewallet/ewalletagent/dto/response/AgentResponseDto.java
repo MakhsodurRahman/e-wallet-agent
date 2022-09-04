@@ -2,6 +2,7 @@ package com.ewallet.ewalletagent.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.multipart.MultipartFile;
 
 @Getter
 @Setter
@@ -20,5 +21,6 @@ public class AgentResponseDto {
     private String pin;
     private String status;
     private String role;
-    private String profileImagePath;
+    private String profilePhotoUrl;
+    private String nidCardPhotoUrl;
 }
