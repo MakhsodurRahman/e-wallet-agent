@@ -1,6 +1,4 @@
 package com.ewallet.ewalletagent.controller.implementation;
-
-import com.common_service.exceptions.NotFoundException;
 import com.ewallet.ewalletagent.controller.definition.IAgentController;
 import com.ewallet.ewalletagent.dto.request.AgentRequestDto;
 import com.ewallet.ewalletagent.dto.response.AgentResponseDto;
@@ -29,28 +27,25 @@ public class AgentController implements IAgentController {
     }
 
     @Override
-    public ResponseEntity<AgentResponseDto> getAgent(@PathVariable Long id){
+    public ResponseEntity<AgentResponseDto> getAgent(Long id){
         var agent = agentService.findById(id);
-        if(agent == null){
-            throw new NotFoundException("id not found ......");
-        }
         return ResponseEntity.ok(agent);
     }
 
     @Override
-    public ResponseEntity<String> createAgent(@RequestBody AgentRequestDto agentRequestDto){
+    public ResponseEntity<String> createAgent(AgentRequestDto agentRequestDto){
         agentService.createAgent(agentRequestDto);
         return new ResponseEntity<>("Agent Created", HttpStatus.CREATED);
     }
 
     @Override
-    public ResponseEntity<String> updateAgent(@RequestBody Agent agent){
+    public ResponseEntity<String> updateAgent(Agent agent){
         Agent agents =  agentService.updateAgent(agent);
         return  ResponseEntity.ok("agent updated");
     }
 
     @Override
-    public ResponseEntity<String> deleteAgent(@PathVariable String id){
+    public ResponseEntity<String> deleteAgent(String id){
         agentService.delete(id);
         return ResponseEntity.ok("agent deleted");
     }
